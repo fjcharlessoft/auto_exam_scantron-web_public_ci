@@ -114,10 +114,10 @@ jobs:
             gitee.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBMuEoYdx6to5oxR60IWj8uoe1aI0X1fKOHWOtLqTg1tsLT1iFwXV5JmFjU46EzeMBV/6EmI1uaRI6HiEPtPtJHE=
             gitee.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEKxHSJ7084RmkJ4YdEi5tngynE8aZe2uEoVVsB/OvYN
           Eof
-      - name: Set up Node.js v16.0.0
+      - name: Set up Node.js v16
         uses: actions/setup-node@v4
         with:
-          node-version: '14.x'
+          node-version: '16.x'
           architecture: 'x64'  # 关键：强制使用 x64
           
 
@@ -146,7 +146,7 @@ jobs:
           echo "WORK_ROOT_DIR=${PWD}/${{github.event.client_payload.project_name}}" >> $GITHUB_ENV
           echo "WORKSPACE=${PWD}/${{github.event.client_payload.project_name}}" >> $GITHUB_ENV
           echo "JENKINS_ENV_PATH=${PWD}/${{github.event.client_payload.project_name}}/.JENKINS.env" >> $GITHUB_ENV
-          echo "RELEASE_PACKAGE=123.60.164.114" >> $GITHUB_ENV 
+          echo "RELEASE_PACKAGE=60.204.249.106" >> $GITHUB_ENV 
           echo "JAVA_SSO_PACKAGE=sso-1.0.1.jar"  >> $GITHUB_ENV
           echo "ISDEBUG=${{github.event.client_payload.isdebug}}" >> $GITHUB_ENV
 
