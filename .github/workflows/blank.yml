@@ -113,10 +113,10 @@ jobs:
           ssh-keyscan github.com >> "$HOME/.ssh/known_hosts"
           ssh-keyscan gitee.com >> "$HOME/.ssh/known_hosts"
           
-      - name: Set up Node.js v16
+      - name: Set up Node.js v10.24.1
         uses: actions/setup-node@v4
         with:
-          node-version: '16.x'
+          node-version: '10.24.1'
           architecture: 'x64'  # 关键：强制使用 x64
           
 
@@ -128,7 +128,7 @@ jobs:
           # git clone ${{ github.event.client_payload.gitaddress }}
           echo ${{ github.event.client_payload.raw_branch }}
           echo ${{ github.event.client_payload.BRANCH_NAME }}
-          git clone -b ${{ github.event.client_payload.BRANCH_NAME }} ${{ github.event. client_payload.gitaddress }}
+          git clone -b ${{ github.event.client_payload.BRANCH_NAME }} ${{ github.event.client_payload.gitaddress }}
           # git clone git@gitee.com:charlesabc/myutils.git ./${{ github.event.client_payload.project_name }}/myutils
           git clone git@github.com:charlessoft/myutils.git ./${{ github.event.client_payload.project_name }}/myutils
           ls ./${{ github.event.client_payload.project_name }}
