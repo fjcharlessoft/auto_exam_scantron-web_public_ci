@@ -113,10 +113,10 @@ jobs:
           ssh-keyscan github.com >> "$HOME/.ssh/known_hosts"
           ssh-keyscan gitee.com >> "$HOME/.ssh/known_hosts"
           
-      - name: Set up Node.js v10.24.1
+      - name: Set up Node.js v14.21.3
         uses: actions/setup-node@v4
         with:
-          node-version: '10.24.1'
+          node-version: '14.21.3'
           architecture: 'x64'  # 关键：强制使用 x64
           
 
@@ -201,7 +201,7 @@ jobs:
           
           
           
-          find ${WORKSPACE}/myutils/auto_exam/ -name "*.sh" -exec dos2unix {} \;
+          find ${WORKSPACE}/myutils/auto_exam/ -name "*.sh" -exec sed -i '' -e 's/\r$//' {} \;
           
           
           sh ${WORKSPACE}/myutils/auto_exam/scantron-web/scripts/build_web.sh ${JENKINS_ENV_PATH} || CheckLastResult
