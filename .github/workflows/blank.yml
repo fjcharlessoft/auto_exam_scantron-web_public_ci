@@ -181,7 +181,17 @@ jobs:
           source utils.sh
           popd 
 
-          # mv /opt/homebrew/Cellar/node@22/22.21.1_4 /opt/homebrew/Cellar/node@22/22.21.1_4_bak
+          NODE22_CELLAR_ROOT="/opt/homebrew/Cellar/node@22"
+          if [ -d "$NODE22_CELLAR_ROOT" ]; then
+            NODE22_DIR="$(find "$NODE22_CELLAR_ROOT" -mindepth 1 -maxdepth 1 -type d | head -n 1)"
+            if [ -n "$NODE22_DIR" ] && [ -d "$NODE22_DIR" ]; then
+              mv "$NODE22_DIR" "${NODE22_DIR}_bak"
+            else
+              echo "No installed node@22 directory found under $NODE22_CELLAR_ROOT, skipping rename."
+            fi
+          else
+            echo "$NODE22_CELLAR_ROOT does not exist, skipping rename."
+          fi
 
 
           npm config set registry https://registry.npmmirror.com
