@@ -181,7 +181,7 @@ jobs:
           source utils.sh
           popd 
 
-          mv /opt/homebrew/Cellar/node@22/22.21.1_4 /opt/homebrew/Cellar/node@22/22.21.1_4_bak
+          # mv /opt/homebrew/Cellar/node@22/22.21.1_4 /opt/homebrew/Cellar/node@22/22.21.1_4_bak
 
 
           npm config set registry https://registry.npmmirror.com
